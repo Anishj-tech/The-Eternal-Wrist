@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Eternal Wrist — Timepieces of Distinction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ================================================ NAVBAR ================================================ -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <button class="brand-logo" onclick="showSection('home')">
+          <!-- <span class="logo-badge">TEW</span> -->
+          <span class="logo-wordmark">The Eternal Wrist</span>
+        </button>
+        <ul class="nav-links">
+          <li>
+            <button class="nav-link" onclick="showSection('home')">Home</button>
+          </li>
+          <li>
+            <button class="nav-link" onclick="showSection('collection')">
+              Collection
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" onclick="showSection('about')">
+              About
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" onclick="showSection('contact')">
+              Contact
+            </button>
+          </li>
+        </ul>
+        <div class="nav-search-wrap">
+          <i class="fa-solid fa-magnifying-glass nav-search-icon"></i>
+          <input
+            type="text"
+            id="navSearchInput"
+            class="nav-search-input"
+            placeholder="Search timepieces…"
+            autocomplete="off"
+          />
+        </div>
+        <div class="nav-right">
+          <button
+            class="icon-btn"
+            id="themeToggleBtn"
+            title="Toggle theme"
+            aria-label="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button
+            class="icon-btn"
+            id="wishlistNavBtn"
+            title="Wishlist"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span class="nav-badge hidden" id="wishlistBadge">0</span>
+          </button>
+          <button
+            class="icon-btn"
+            id="cartNavBtn"
+            title="Cart"
+            aria-label="Cart"
+          >
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="nav-badge hidden" id="cartBadge">0</span>
+          </button>
+          <button class="btn-signin" id="authNavBtn">Sign In</button>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+          <button onclick="navTo('home')">Home</button>
+          <button onclick="navTo('collection')">Collection</button>
+          <button onclick="navTo('about')">About</button>
+          <button onclick="navTo('contact')">Contact</button>
+          <button onclick="navTo('wishlist')">Wishlist</button>
+        </div>
+        <div class="mobile-nav-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="mobileSearchInput"
+            placeholder="Search timepieces…"
+          />
+        </div>
+        <button
+          class="btn-signin"
+          onclick="
+            openAuth();
+            closeMobileNav();
+          "
+        >
+          Sign In
+        </button>
+      </div>
+    </nav>
+
+    <!-- ================================================ HOME ================================================ -->
+    <section id="section-home" class="page-section active">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-media">
+          <img
+            src="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=1920&q=90&fit=crop"
+            alt="Luxury timepiece"
+            class="hero-img"
+          />
+          <div class="hero-vignette"></div>
+        </div>
+        <div class="hero-body">
+          <p class="eyebrow">Est. 1987 &mdash; Geneva</p>
+          <h1 class="hero-heading">Timeless<br /><em>Precision.</em></h1>
+          <p class="hero-copy">
+            Crafted for those who understand that time<br />is not merely
+            measured — it is experienced.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="showSection('collection')">
+              Explore Collection
+            </button>
+            <button class="btn-ghost" onclick="showSection('about')">
+              Our Story
+            </button>
+          </div>
+        </div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+          <span class="scroll-label">Scroll</span>
+          <div class="scroll-bar"></div>
+        </div>
+      </div>
+
+      <!-- MARQUEE -->
+      <div class="marquee-band" aria-hidden="true">
+        <div class="marquee-inner">
+          <span>Free shipping on orders above ₹50,000</span
+          ><span class="mdot">·</span> <span>2-year international warranty</span
+          ><span class="mdot">·</span>
+          <span>Certified authentic timepieces</span><span class="mdot">·</span>
+          <span>White-glove delivery service</span><span class="mdot">·</span>
+          <span>Free shipping on orders above ₹50,000</span
+          ><span class="mdot">·</span> <span>2-year international warranty</span
+          ><span class="mdot">·</span>
+          <span>Certified authentic timepieces</span><span class="mdot">·</span>
+          <span>White-glove delivery service</span><span class="mdot">·</span>
+        </div>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="content-section">
+        <div class="section-header">
+          <p class="eyebrow">Browse by Category</p>
+          <h2 class="section-title">Curated Collections</h2>
+        </div>
+        <div class="category-grid">
+          <div
+            class="cat-tile"
+            onclick="filterByBrand('Rolex')"
+            tabindex="0"
+            role="button"
+          >
+            <div class="cat-img-wrap">
+              <img
+                src="./images/dress_watch.webp"
+                alt="Dress Watches"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-overlay">
+              <h3>Dress Watches</h3>
+              <span>14 pieces</span>
+            </div>
+          </div>
+          <div
+            class="cat-tile"
+            onclick="filterByBrand('Omega')"
+            tabindex="0"
+            role="button"
+          >
+            <div class="cat-img-wrap">
+              <img
+                src="./images/sport.jpg"
+                alt="Sport Watches"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-overlay">
+              <h3>Sport Watches</h3>
+              <span>21 pieces</span>
+            </div>
+          </div>
+          <div
+            class="cat-tile"
+            onclick="filterByBrand('Patek Philippe')"
+            tabindex="0"
+            role="button"
+          >
+            <div class="cat-img-wrap">
+              <img
+                src="./images/compli.webp"
+                alt="Complications"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-overlay">
+              <h3>Complications</h3>
+              <span>9 pieces</span>
+            </div>
+          </div>
+          <div
+            class="cat-tile"
+            onclick="filterByBrand('TAG Heuer')"
+            tabindex="0"
+            role="button"
+          >
+            <div class="cat-img-wrap">
+              <img
+                src="./images/chrono.webp"
+                alt="Chronographs"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-overlay">
+              <h3>Chronographs</h3>
+              <span>17 pieces</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED -->
+      <div class="content-section content-section--surface">
+        <div class="section-header section-header--row">
+          <div>
+            <p class="eyebrow">Editor's Choice</p>
+            <h2 class="section-title">Featured Timepieces</h2>
+          </div>
+          <button class="btn-text-link" onclick="showSection('collection')">
+            View Full Collection <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <div class="product-grid" id="featuredGrid"></div>
+      </div>
+
+      <!-- TRUST STRIP -->
+      <div class="trust-strip">
+        <div class="trust-item">
+          <i class="fa-solid fa-shield-halved trust-icon"></i>
+          <div>
+            <h4>Authenticity Guaranteed</h4>
+            <p>Every piece verified by certified horologists</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-rotate trust-icon"></i>
+          <div>
+            <h4>30-Day Returns</h4>
+            <p>Hassle-free, no questions asked</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-truck trust-icon"></i>
+          <div>
+            <h4>Insured Delivery</h4>
+            <p>White-glove shipping across India</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-headset trust-icon"></i>
+          <div>
+            <h4>Concierge Support</h4>
+            <p>Dedicated experts, 7 days a week</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================ COLLECTION ================================================ -->
+    <section id="section-collection" class="page-section">
+      <div class="collection-hero-band">
+        <p class="eyebrow">Our Catalogue</p>
+        <h1 class="page-title">The Collection</h1>
+        <p class="page-subtitle">
+          Every piece tells a story of precision, heritage, and enduring
+          artistry.
+        </p>
+      </div>
+      <div class="collection-body">
+        <!-- SIDEBAR -->
+        <aside class="filter-sidebar" id="filterSidebar">
+          <div class="filter-sidebar-head">
+            <h3 class="filter-sidebar-title">Refine</h3>
+            <button class="btn-clear" onclick="clearFilters()">
+              Clear All
+            </button>
+          </div>
+          <div class="filter-block">
+            <p class="filter-block-heading">Brand</p>
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="Rolex"
+                onchange="applyFilters()"
+              /><span>Rolex</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="Omega"
+                onchange="applyFilters()"
+              /><span>Omega</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="Patek Philippe"
+                onchange="applyFilters()"
+              /><span>Patek Philippe</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="TAG Heuer"
+                onchange="applyFilters()"
+              /><span>TAG Heuer</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="Seiko"
+                onchange="applyFilters()"
+              /><span>Seiko</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="Grand Seiko"
+                onchange="applyFilters()"
+              /><span>Grand Seiko</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="IWC"
+                onchange="applyFilters()"
+              /><span>IWC</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="brand"
+                value="Cartier"
+                onchange="applyFilters()"
+              /><span>Cartier</span></label
+            >
+          </div>
+          <div class="filter-block">
+            <p class="filter-block-heading">Price Range</p>
+            <label class="check-label"
+              ><input
+                type="radio"
+                name="price"
+                value="0-100000"
+                onchange="applyFilters()"
+              /><span>Under ₹1,00,000</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="radio"
+                name="price"
+                value="100000-500000"
+                onchange="applyFilters()"
+              /><span>₹1L – ₹5L</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="radio"
+                name="price"
+                value="500000-1500000"
+                onchange="applyFilters()"
+              /><span>₹5L – ₹15L</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="radio"
+                name="price"
+                value="1500000-99999999"
+                onchange="applyFilters()"
+              /><span>Above ₹15L</span></label
+            >
+          </div>
+          <div class="filter-block">
+            <p class="filter-block-heading">Movement</p>
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="movement"
+                value="Automatic"
+                onchange="applyFilters()"
+              /><span>Automatic</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="movement"
+                value="Manual"
+                onchange="applyFilters()"
+              /><span>Manual Winding</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="movement"
+                value="Quartz"
+                onchange="applyFilters()"
+              /><span>Quartz</span></label
+            >
+          </div>
+          <div class="filter-block">
+            <p class="filter-block-heading">Strap Type</p>
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="strap"
+                value="Bracelet"
+                onchange="applyFilters()"
+              /><span>Steel Bracelet</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="strap"
+                value="Leather"
+                onchange="applyFilters()"
+              /><span>Leather Strap</span></label
+            >
+            <label class="check-label"
+              ><input
+                type="checkbox"
+                name="strap"
+                value="Rubber"
+                onchange="applyFilters()"
+              /><span>Rubber Strap</span></label
+            >
+          </div>
+        </aside>
+        <!-- PRODUCTS PANEL -->
+        <div class="products-panel">
+          <div class="products-toolbar">
+            <div class="toolbar-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                id="collectionSearch"
+                placeholder="Search by name, brand or model…"
+                oninput="applyFilters()"
+              />
+            </div>
+            <div class="toolbar-right">
+              <select
+                id="sortSelect"
+                class="sort-select"
+                onchange="applyFilters()"
+              >
+                <option value="default">Sort: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Name: A–Z</option>
+              </select>
+              <button
+                class="btn-filter-toggle"
+                id="filterToggleBtn"
+                onclick="toggleFilterSidebar()"
+              >
+                <i class="fa-solid fa-sliders"></i> Filters
+              </button>
+            </div>
+          </div>
+          <p class="results-label" id="resultsLabel">Showing 16 pieces</p>
+          <div class="product-grid" id="collectionGrid"></div>
+          <div class="empty-state" id="collectionEmpty" style="display: none">
+            <div class="empty-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3>No timepieces found</h3>
+            <p>Try adjusting your filters or search terms.</p>
+            <button class="btn-primary" onclick="clearFilters()">
+              Clear Filters
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================ DETAIL ================================================ -->
+    <section id="section-detail" class="page-section">
+      <div class="detail-topbar">
+        <button class="btn-back" onclick="goBack()">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+      </div>
+      <div id="detailContent"></div>
+    </section>
+
+    <!-- ================================================ ABOUT ================================================ -->
+    <section id="section-about" class="page-section">
+      <div class="about-hero">
+        <img
+          src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1600&q=85&fit=crop"
+          alt="Watchmaker atelier"
+          class="about-hero-img"
+        />
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-text">
+          <p class="eyebrow">Est. 1987 — Geneva</p>
+          <h1>A Legacy Forged<br /><em>in Precision</em></h1>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="about-2col">
+          <div class="about-prose">
+            <h2 class="about-title">The Philosophy</h2>
+            <p>
+              The Eternal Wrist was born from a singular conviction: that a
+              watch is not merely a device for measuring time, but a
+              philosophical statement about how one chooses to live within it.
+            </p>
+            <p>
+              Founded in Geneva in 1987 by master horologist Arnaud Leclerc, our
+              maison has spent four decades curating the world's most
+              exceptional timepieces — selecting only those that embody the
+              highest standards of mechanical artistry and enduring design.
+            </p>
+            <p>
+              We do not chase trends. We identify permanence. Every piece in our
+              collection has been chosen to be as relevant in fifty years as it
+              is today.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number">36+</span
+              ><span class="stat-label">Years of curation</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">2,400+</span
+              ><span class="stat-label">Pieces curated</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">18</span
+              ><span class="stat-label">Brand partnerships</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">12</span
+              ><span class="stat-label">Countries served</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-num">01</div>
+            <h3 class="pillar-title">Authenticity</h3>
+            <p class="pillar-body">
+              Every timepiece undergoes rigorous verification by certified
+              master watchmakers before entering our collection.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">02</div>
+            <h3 class="pillar-title">Heritage</h3>
+            <p class="pillar-body">
+              We partner exclusively with maisons that carry at least three
+              generations of horological mastery in their lineage.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">03</div>
+            <h3 class="pillar-title">Discretion</h3>
+            <p class="pillar-body">
+              Our white-glove service ensures every acquisition is handled with
+              the privacy and care it deserves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================ CONTACT ================================================ -->
+    <section id="section-contact" class="page-section">
+      <div class="contact-layout">
+        <div class="contact-left">
+          <p class="eyebrow">Get in Touch</p>
+          <h2 class="contact-heading">We Are Here<br /><em>For You</em></h2>
+          <p class="contact-intro">
+            Whether you seek a specific piece, require servicing, or wish to
+            know more about our collection — our concierge team is at your
+            service.
+          </p>
+          <div class="contact-details">
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-detail-text">
+                <strong>Boutique</strong
+                ><span>14 Horniman Circle, Fort, Mumbai 400001</span>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-detail-text">
+                <strong>Email</strong><span>concierge@eternalwrist.in</span>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-detail-text">
+                <strong>Phone</strong><span>+91 22 4001 5678</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form
+            class="contact-form-card"
+            id="contactForm"
+            onsubmit="submitContact(event)"
+          >
+            <h3 class="contact-form-title">Send a Message</h3>
+            <div class="form-row-2">
+              <div class="field-group">
+                <label class="field-label">First Name</label
+                ><input
+                  type="text"
+                  class="field-input"
+                  placeholder="Arjun"
+                  required
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label">Last Name</label
+                ><input
+                  type="text"
+                  class="field-input"
+                  placeholder="Mehta"
+                  required
+                />
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Email Address</label
+              ><input
+                type="email"
+                class="field-input"
+                placeholder="arjun@example.com"
+                required
+              />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Subject</label>
+              <select class="field-input field-select">
+                <option value="">Select a topic</option>
+                <option>Product Inquiry</option>
+                <option>Watch Servicing</option>
+                <option>Authentication</option>
+                <option>Bespoke Order</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Message</label
+              ><textarea
+                class="field-input field-textarea"
+                rows="5"
+                placeholder="Tell us how we can assist you…"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================ CHECKOUT ================================================ -->
+    <section id="section-checkout" class="page-section">
+      <div class="checkout-wrapper" id="checkoutWrapper"></div>
+    </section>
+
+    <!-- ================================================ WISHLIST ================================================ -->
+    <section id="section-wishlist" class="page-section">
+      <div class="wishlist-wrapper">
+        <div class="wishlist-head">
+          <p class="eyebrow">My Selections</p>
+          <h2 class="section-title">Wishlist</h2>
+        </div>
+        <div class="product-grid" id="wishlistGrid"></div>
+        <div class="empty-state" id="wishlistEmpty" style="display: none">
+          <div class="empty-icon"><i class="fa-regular fa-heart"></i></div>
+          <h3>Your wishlist is empty</h3>
+          <p>Explore our collection and save the pieces that speak to you.</p>
+          <button class="btn-primary" onclick="showSection('collection')">
+            Browse Collection
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================ FOOTER ================================================ -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <!-- <span class="logo-badge">TEW</span> -->
+            <span class="footer-brand-name">The Eternal Wrist</span>
+          </div>
+          <p class="footer-brand-desc">
+            Curating the world's finest timepieces since 1987. Authenticity,
+            heritage, and discretion — always.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="Twitter"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-heading">Collections</p>
+          <button class="footer-nav-link" onclick="filterByBrand('Rolex')">
+            Rolex
+          </button>
+          <button class="footer-nav-link" onclick="filterByBrand('Omega')">
+            Omega
+          </button>
+          <button
+            class="footer-nav-link"
+            onclick="filterByBrand('Patek Philippe')"
+          >
+            Patek Philippe
+          </button>
+          <button class="footer-nav-link" onclick="filterByBrand('TAG Heuer')">
+            TAG Heuer
+          </button>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-heading">Services</p>
+          <button class="footer-nav-link">Watch Servicing</button>
+          <button class="footer-nav-link">Authentication</button>
+          <button class="footer-nav-link">Bespoke Orders</button>
+          <button class="footer-nav-link">Trade-In</button>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-heading">Company</p>
+          <button class="footer-nav-link" onclick="showSection('about')">
+            About Us
+          </button>
+          <button class="footer-nav-link" onclick="showSection('contact')">
+            Contact
+          </button>
+          <button class="footer-nav-link">Privacy Policy</button>
+          <button class="footer-nav-link">Terms of Service</button>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <span>&copy; 2026 The Eternal Wrist. All rights reserved.</span>
+        <span
+          >Prices in INR. All pieces authenticated. GST applicable at
+          checkout.</span
+        >
+      </div>
+    </footer>
+
+    <!-- ================================================ CART DRAWER ================================================ -->
+    <div class="overlay" id="cartOverlay"></div>
+    <div
+      class="cart-drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-label="Shopping cart"
+    >
+      <div class="drawer-head">
+        <h3 class="drawer-title">Your Cart</h3>
+        <button class="icon-btn" id="cartCloseBtn" aria-label="Close cart">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="drawer-body" id="cartBody"></div>
+      <div class="drawer-foot" id="cartFoot"></div>
+    </div>
+
+    <!-- ================================================ AUTH MODAL ================================================ -->
+    <div class="overlay" id="authOverlay"></div>
+    <div
+      class="auth-modal"
+      id="authModal"
+      role="dialog"
+      aria-label="Authentication"
+    >
+      <button
+        class="icon-btn modal-close-btn"
+        id="authCloseBtn"
+        aria-label="Close"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="auth-brand-row">
+        <!-- <span class="logo-badge sm">TEW</span> -->
+        <span class="auth-brand-name">The Eternal Wrist</span>
+      </div>
+      <div class="auth-tab-bar">
+        <button
+          class="auth-tab active"
+          id="tabLogin"
+          onclick="switchTab('login')"
+        >
+          Sign In
+        </button>
+        <button class="auth-tab" id="tabSignup" onclick="switchTab('signup')">
+          Create Account
+        </button>
+        <div class="tab-underline" id="tabUnderline"></div>
+      </div>
+      <!-- LOGIN -->
+      <form
+        id="loginForm"
+        class="auth-form active"
+        onsubmit="handleLogin(event)"
+        novalidate
+      >
+        <div class="field-group">
+          <label class="field-label">Email Address</label
+          ><input
+            type="email"
+            class="field-input"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Password</label
+          ><input
+            type="password"
+            class="field-input"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+        <div class="auth-meta-row">
+          <label class="check-label check-sm"
+            ><input type="checkbox" /><span>Remember me</span></label
+          >
+          <button type="button" class="btn-text-muted">Forgot password?</button>
+        </div>
+        <button type="submit" class="btn-primary btn-full">Sign In</button>
+        <p class="auth-switch-note">
+          New here?
+          <button
+            type="button"
+            class="btn-inline-link"
+            onclick="switchTab('signup')"
+          >
+            Create an account
+          </button>
+        </p>
+      </form>
+      <!-- SIGNUP -->
+      <form
+        id="signupForm"
+        class="auth-form"
+        onsubmit="handleSignup(event)"
+        novalidate
+      >
+        <div class="form-row-2">
+          <div class="field-group">
+            <label class="field-label">First Name</label
+            ><input
+              type="text"
+              class="field-input"
+              placeholder="Arjun"
+              required
+            />
+          </div>
+          <div class="field-group">
+            <label class="field-label">Last Name</label
+            ><input
+              type="text"
+              class="field-input"
+              placeholder="Mehta"
+              required
+            />
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Email Address</label
+          ><input
+            type="email"
+            class="field-input"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Password</label
+          ><input
+            type="password"
+            class="field-input"
+            placeholder="Min. 8 characters"
+            required
+          />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Confirm Password</label
+          ><input
+            type="password"
+            class="field-input"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-primary btn-full">
+          Create Account
+        </button>
+        <p class="auth-switch-note">
+          Already a member?
+          <button
+            type="button"
+            class="btn-inline-link"
+            onclick="switchTab('login')"
+          >
+            Sign in
+          </button>
+        </p>
+      </form>
+    </div>
+
+    <!-- TOASTS -->
+    <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
